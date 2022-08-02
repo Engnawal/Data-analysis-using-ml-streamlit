@@ -15,10 +15,13 @@ st.title('Liver Disease Prediction System')
 st.write(""" This program detect if the person has liver disease or not by using machine learning and python. """)
 image = Image.open('C:/Users/DELL/Desktop/AI.webp')
 st.image(image, caption='ML', use_column_width=True)
+
 # Get the Data
 df = pd.read_csv('C:/Users/DELL/Desktop/liver_patient.csv')
+
 #Set a subheader
 st.subheader('Data information')
+
 #Show the data as table
 df_data = pd.read_csv('C:/Users/DELL/Desktop/liver_patient.csv')
 st.write(df_data.head())
@@ -26,9 +29,11 @@ st.write(df.describe())
 st.subheader('Visualization of Age distribution on Liver dataset')
 Age_dist = pd.DataFrame(df_data['Age'].value_counts()).head(100)
 st.bar_chart(Age_dist)
+
 #Split the data into independent variable and dependent variable
 X = df.drop(["Gender", "Dataset"], axis=1)
 Y = df["Dataset"]
+
 #Split the dataset into 75% Training and 25% Testing
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25, random_state=0)
 select = st.sidebar.selectbox('Select blood test', ['Liver blood test'], key='1')
@@ -38,6 +43,7 @@ if not st.sidebar.checkbox("Hide", True, key='1'):
     n_estimetor = st.selectbox("Gender:", options=['Male', 'Female'], index=0)
     n_estimetor = st.selectbox("Obesity:", options=['Yes', 'No'], index=0)
     n_estimetor = st.selectbox("Smoker:", options=['Yes', 'No'], index=0)
+    
     st.title('Symptoms:')
     n_estimetor = st.selectbox("Skin and eyes that appear yellowish:", options=['Yes', 'No'], index=0)
     n_estimetor = st.selectbox("Abdominal pain and swelling:", options=['Yes', 'No'], index=0)
@@ -49,6 +55,8 @@ if not st.sidebar.checkbox("Hide", True, key='1'):
     n_estimetor = st.selectbox("Nausea or vomiting:", options=['Yes', 'No'], index=0)
     n_estimetor = st.selectbox("Loss of appetite:", options=['Yes', 'No'], index=0)
     n_estimetor = st.selectbox("Tendency to bruise easily:", options=['Yes', 'No'], index=0)
+    
+    #Set slider value 
     Age = st.slider('Age', 5, 20, 89)
     Total_Bilirubin = st.slider(' Total_Bilirubin', 0, 15, 20)
     Direct_Bilirubin = st.slider(' Direct_Bilirubin', 0, 3, 5)
