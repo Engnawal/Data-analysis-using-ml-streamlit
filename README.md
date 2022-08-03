@@ -1,6 +1,6 @@
 # streamlit  
 
-This project contain: machine learning classification techniques on Liver dataset to discover hidden patterns that would be leveraged in decision making, data analysis and modeling. And it is integrated in a web application using streamlit.
+This project contain: machine learning classification techniques on Liver dataset to discover hidden patterns that would be leveraged in decision making, liver dataset analysis and modeling. And it is integrated in a web application using streamlit.
 
 ✅ Keywords: Python, Data Mining, MLP, Streamlit
 
