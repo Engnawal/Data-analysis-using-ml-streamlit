@@ -12,7 +12,7 @@ This project contain: machine learning classification techniques using Liver dat
 
 ![Screenshot 2022-08-02 210551](https://user-images.githubusercontent.com/94877868/182633249-c51de8c5-7b3b-46b7-b34e-2551466639d5.png)
 
-![Screenshot 2022-08-02 210613](https://user-images.githubusercontent.com/94877868/182633317-c32e828a-8710-47a2-b4b8-5cdd0211287b.png)
+![image](https://user-images.githubusercontent.com/94877868/182915268-85586e02-575e-414e-8b56-201a07402e73.png)
 
 ![image](https://user-images.githubusercontent.com/94877868/182915037-fd8e1751-0763-47e7-9764-cfa59e561e7d.png)
 
