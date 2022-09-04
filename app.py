@@ -3,10 +3,8 @@ import numpy as np
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.neural_network import MLPClassifier
-from PIL import Image
 import streamlit as st
 from sklearn import *
-import os
 
 
 # importing the csv module
@@ -31,8 +29,6 @@ with open(filename, 'w') as csvfile:
 # Create a title and a subtitle
 st.title('Liver Disease Prediction System')
 st.write(""" This program detect if the person has liver disease or not by using machine learning and python. """)
-image = Image.open(os.path.join(r'C:/Users/DELL/Desktop/AI.webp'))
-st.image(image, caption='ML', use_column_width=True)
 
 # Get the Data
 df = pd.read_csv('C:/Users/DELL/Desktop/liver_patient.csv')
