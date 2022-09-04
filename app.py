@@ -7,8 +7,24 @@ from PIL import Image
 import streamlit as st
 from sklearn import *
 
+# importing the csv module
+import csv
 
+# field names
+fields = (["Age","Gender","Total_Bilirubin","Direct_Bilirubin","Alkaline_Phosphotase","Alamine_Aminotransferase","Aspartate_Aminotransferase","Total_Protiens","Albumin","Albumin_and_Globulin_Ratio", "Dataset"])
+# name of csv file
+filename = "liver_patient.csv"
 
+# writing to csv file
+with open(filename, 'w') as csvfile:
+	# creating a csv writer object
+	csvwriter = csv.writer(csvfile)
+	
+	# writing the fields
+	csvwriter.writerow(fields)
+	
+	# writing the data rows
+	csvwriter.writerows(fields)
 
 # Create a title and a subtitle
 st.title('Liver Disease Prediction System')
@@ -30,9 +46,10 @@ st.subheader('Visualization of Age distribution on Liver dataset')
 Age_dist = pd.DataFrame(df_data['Age'].value_counts()).head(100)
 st.bar_chart(Age_dist)
 
-#Split the data into independent variable and dependent variable
-X = df.drop(["Gender", "Dataset"], axis=1)
-Y = df["Dataset"]
+#Split the data into independent variable and dependent variable.Where MLP model is expecting 9 features as input from the user.
+X = df.iloc[:, :9].values
+Y = df.iloc[:, -1].values
+
 
 #Split the dataset into 75% Training and 25% Testing
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25, random_state=0)
@@ -81,9 +98,14 @@ if submit:
     prediction = classifier.predict([[Age, Total_Bilirubin, Direct_Bilirubin, Alkaline_Phosphotase,
                                       Alamine_Aminotransferase, Aspartate_Aminotransferase, Total_Protiens, Albumin,
                                       Albumin_and_Globulin_Ratio]])
-    if prediction == 0:
+    if (prediction[0]== 0):
         st.write('Congratulation', name, 'You are not affected.')
         st.balloons()
     else:
         st.write(name, " we are really sorry to say that but it seems like you need medical care.")
 
+
+
+
+        
+    
