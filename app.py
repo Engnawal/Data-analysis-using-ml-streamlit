@@ -3,8 +3,10 @@ import numpy as np
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.neural_network import MLPClassifier
+from PIL import Image
 import streamlit as st
 from sklearn import *
+import os
 
 
 # importing the csv module
@@ -29,6 +31,8 @@ with open(filename, 'w') as csvfile:
 # Create a title and a subtitle
 st.title('Liver Disease Prediction System')
 st.write(""" This program detect if the person has liver disease or not by using machine learning and python. """)
+image = Image.open(os.path.join(r'C:/Users/DELL/Desktop/AI.webp'))
+st.image(image, caption='ML', use_column_width=True)
 
 # Get the Data
 df = pd.read_csv('C:/Users/DELL/Desktop/liver_patient.csv')
@@ -44,7 +48,7 @@ st.subheader('Visualization of Age distribution on Liver dataset')
 Age_dist = pd.DataFrame(df_data['Age'].value_counts()).head(100)
 st.bar_chart(Age_dist)
 
-#Split the data into independent variable and dependent variable.Where MLP model is expecting 9 features as input from the user.
+#Split the data into independent variable and dependent variable
 X = df.iloc[:, :9].values
 Y = df.iloc[:, -1].values
 
