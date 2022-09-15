@@ -32,6 +32,7 @@ with open(filename, 'w') as csvfile:
 st.title('Liver Disease Prediction System')
 st.write(""" This program detect if the person has liver disease or not by using machine learning and python. """)
 image = Image.open(os.path.join(r'C:/Users/DELL/Desktop/AI.webp'))
+f = open("/Users/DELL/Desktop/AI.webp")
 st.image(image, caption='ML', use_column_width=True)
 
 # Get the Data
